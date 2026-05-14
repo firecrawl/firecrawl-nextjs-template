@@ -1,0 +1,305 @@
+@import "tailwindcss";
+
+/*
+ * Tokens from `firecrawl-web/colors.ts` (light). Tailwind v4 @theme + 1px spacing scale.
+ */
+:root {
+  --heat-4: #fa5d190a;
+  --heat-8: #fa5d1914;
+  --heat-12: #fa5d191f;
+  --heat-16: #fa5d1929;
+  --heat-20: #fa5d1933;
+  --heat-40: #fa5d1966;
+  --heat-100: #fa5d19;
+  --heat-100-p3: color(display-p3 0.980392 0.364706 0.098039);
+  --accent-black: #262626;
+  --accent-white: #ffffff;
+  --accent-amethyst: #9061ff;
+  --surface: #ffffff;
+  --black-alpha-12: rgba(38, 38, 38, 0.12);
+  --black-alpha-24: rgba(38, 38, 38, 0.24);
+  --black-alpha-48: rgba(38, 38, 38, 0.48);
+  --black-alpha-64: rgba(38, 38, 38, 0.64);
+  --border-faint: #ededed;
+  --border-muted: #e8e8e8;
+  --border-loud: #e6e6e6;
+  --background-base: #f9f9f9;
+  --background-lighter: #fbfbfb;
+}
+
+@theme inline {
+  --spacing: 1px;
+  --color-heat-4: var(--heat-4);
+  --color-heat-8: var(--heat-8);
+  --color-heat-12: var(--heat-12);
+  --color-heat-16: var(--heat-16);
+  --color-heat-20: var(--heat-20);
+  --color-heat-40: var(--heat-40);
+  --color-heat-100: var(--heat-100);
+  --color-accent-black: var(--accent-black);
+  --color-accent-white: var(--accent-white);
+  --color-accent-amethyst: var(--accent-amethyst);
+  --color-surface: var(--surface);
+  --color-black-alpha-12: var(--black-alpha-12);
+  --color-black-alpha-24: var(--black-alpha-24);
+  --color-black-alpha-48: var(--black-alpha-48);
+  --color-black-alpha-64: var(--black-alpha-64);
+  --color-border-faint: var(--border-faint);
+  --color-border-muted: var(--border-muted);
+  --color-border-loud: var(--border-loud);
+  --color-background-base: var(--background-base);
+  --color-background-lighter: var(--background-lighter);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--background-base);
+  color: var(--accent-black);
+  font-family: var(--font-sans);
+}
+
+*::selection {
+  background-color: var(--heat-20);
+  color: var(--heat-100);
+}
+
+/* Page backdrop: soft heat wash + fine dot grid (marketing site feel) */
+.fire-page-bg {
+  background-color: var(--background-base);
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -20%, var(--heat-12), transparent 55%),
+    radial-gradient(circle at 100% 0%, rgba(144, 97, 255, 0.06), transparent 42%),
+    radial-gradient(circle, var(--black-alpha-12) 1px, transparent 1px);
+  background-size: auto, auto, 20px 20px;
+}
+
+/* title-h2 from design system: 52px / 56px, -0.52px tracking */
+.fire-title-hero {
+  font-size: 52px;
+  line-height: 56px;
+  letter-spacing: -0.52px;
+  font-weight: 500;
+  color: var(--accent-black);
+}
+
+@media (max-width: 640px) {
+  .fire-title-hero {
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: -0.36px;
+  }
+}
+
+/* Primary CTA: solid heat + depth (see styles-marketing / design system) */
+.fire-btn-primary {
+  background-color: #fa5d19;
+  background-color: var(--heat-100-p3);
+  color: var(--accent-white);
+  font-weight: 500;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.12) inset,
+    0 1px 2px rgba(250, 93, 25, 0.25),
+    0 8px 24px rgba(250, 93, 25, 0.22);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.fire-btn-primary:hover:not(:disabled) {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.16) inset,
+    0 2px 4px rgba(250, 93, 25, 0.3),
+    0 12px 32px rgba(250, 93, 25, 0.28);
+}
+
+.fire-btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.fire-btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Ghost / secondary */
+.fire-btn-ghost {
+  border: 1px solid var(--border-muted);
+  background: var(--surface);
+  color: var(--accent-black);
+  font-weight: 500;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.fire-btn-ghost:hover {
+  border-color: var(--border-loud);
+  background: var(--background-lighter);
+}
+
+/* Small secondary text button (e.g. deploy under try links) */
+.fire-btn-ghost-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-muted);
+  border-radius: 6px;
+  background: var(--surface);
+  padding: 6px 12px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--black-alpha-64);
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.fire-btn-ghost-sm:hover {
+  border-color: var(--border-loud);
+  background: var(--background-lighter);
+  color: var(--accent-black);
+}
+
+/* Composer shell: raised surface on workspace */
+.fire-composer {
+  background: var(--surface);
+  border: 1px solid var(--border-faint);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 12px 40px rgba(38, 38, 38, 0.06);
+}
+
+/* Markdown output panel */
+.fire-markdown-panel {
+  border: 1px solid var(--border-faint);
+  background: var(--surface);
+  box-shadow: 0 24px 48px rgba(38, 38, 38, 0.06);
+}
+
+.fire-markdown-body {
+  font-size: 15px;
+  line-height: 24px;
+  letter-spacing: -0.09px;
+  color: var(--accent-black);
+}
+
+.fire-markdown-body h1,
+.fire-markdown-body h2,
+.fire-markdown-body h3 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--accent-black);
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.fire-markdown-body h1 {
+  font-size: 28px;
+  line-height: 34px;
+}
+
+.fire-markdown-body h2 {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.fire-markdown-body h3 {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.fire-markdown-body p {
+  margin: 0 0 16px;
+  color: var(--black-alpha-64);
+}
+
+.fire-markdown-body a {
+  color: var(--heat-100);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fire-markdown-body ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  color: var(--black-alpha-64);
+}
+
+.fire-markdown-body li {
+  margin-bottom: 6px;
+}
+
+.fire-markdown-body li::marker {
+  color: var(--heat-100);
+}
+
+.fire-markdown-body pre {
+  margin: 16px 0;
+  padding: 16px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border-muted);
+  border-left: 3px solid var(--heat-100);
+  background: var(--background-lighter);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 20px;
+  overflow-x: auto;
+  color: var(--accent-black);
+}
+
+.fire-markdown-body code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--heat-8);
+  color: var(--accent-black);
+}
+
+.fire-markdown-body pre code {
+  padding: 0;
+  background: transparent;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@keyframes fire-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fire-reveal {
+  animation: fire-rise-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.fire-reveal-delay {
+  animation: fire-rise-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards;
+  opacity: 0;
+}
