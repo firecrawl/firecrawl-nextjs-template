@@ -30,9 +30,9 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Environment
 
-| Variable | Required | Notes |
-|----------|----------|--------|
-| `FIRECRAWL_API_KEY` | Yes | From [firecrawl.dev/app/api-keys](https://www.firecrawl.dev/app/api-keys) or Vercel Marketplace provisioning |
+| Variable            | Required | Notes                                                                                                        |
+| ------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
+| `FIRECRAWL_API_KEY` | Yes      | From [firecrawl.dev/app/api-keys](https://www.firecrawl.dev/app/api-keys) or Vercel Marketplace provisioning |
 
 ## Scripts
 
