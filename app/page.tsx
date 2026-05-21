@@ -58,15 +58,37 @@ export default function Home() {
     <div className="fire-page-bg flex min-h-screen flex-col">
       <header className="sticky top-0 z-20 border-b border-border-faint bg-surface/90 px-20 py-14 backdrop-blur-md sm:px-32">
         <div className="mx-auto flex max-w-[1112px] items-center justify-between gap-16">
-          <a href="https://firecrawl.dev" className="flex items-center gap-10">
-            <img
-              src="/firecrawl-logo.svg"
-              alt="Firecrawl"
-              className="h-28 w-auto sm:h-32"
-              width={172}
-              height={40}
-            />
-          </a>
+          <div className="flex items-center gap-12 sm:gap-14">
+            <a href="https://firecrawl.dev" className="flex items-center">
+              <img
+                src="/firecrawl-logo.svg"
+                alt="Firecrawl"
+                className="h-28 w-auto sm:h-32"
+                width={172}
+                height={40}
+              />
+            </a>
+            <span
+              className="text-[18px] font-light leading-none text-black-alpha-24 sm:text-[20px]"
+              aria-hidden
+            >
+              ×
+            </span>
+            <a
+              href="https://vercel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <img
+                src="/vercel-logo.svg"
+                alt="Vercel"
+                className="h-16 w-auto sm:h-18"
+                width={140}
+                height={28}
+              />
+            </a>
+          </div>
           <nav className="flex items-center gap-8 sm:gap-12">
             <a
               href="https://docs.firecrawl.dev"
