@@ -15,7 +15,7 @@ Update `TEMPLATE_GITHUB_REPO` in `lib/vercel-template.ts` if the canonical GitHu
 ## What it does
 
 - **UI**: URL input, example shortcuts, rendered markdown from the scrape response.
-- **API**: `POST /api/scrape` with JSON `{ "url": "https://…" }` using `@mendable/firecrawl-js` (`Firecrawl` client, `scrape` with `formats: ["markdown"]`).
+- **API**: `POST /api/scrape` with JSON `{ "url": "https://…" }` using `firecrawl` (`Firecrawl` client, `scrape` with `formats: ["markdown"]`).
 
 ## Local development
 

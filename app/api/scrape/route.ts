@@ -1,4 +1,4 @@
-import Firecrawl from "@mendable/firecrawl-js";
+import { Firecrawl } from "firecrawl";
 import { NextResponse } from "next/server";
 
 export const maxDuration = 120;
